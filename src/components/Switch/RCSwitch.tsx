@@ -1,6 +1,7 @@
 import { SwitchChangeEventHandler, SwitchClickEventHandler } from "rc-switch";
 import BaseSwitch from "rc-switch";
 import "rc-switch/assets/index.css";
+import "./Switch.scss";
 
 export interface IRCSwitch
   extends Omit<
@@ -21,8 +22,9 @@ export interface IRCSwitch
   loadingIcon?: React.ReactNode;
   style?: React.CSSProperties;
   title?: string;
+  background: string;
 }
 
 export function RCSwitch({ ...rest }: IRCSwitch) {
-  return <BaseSwitch {...rest} />;
+  return <BaseSwitch {...rest} className={"base-rc-switch"} />;
 }

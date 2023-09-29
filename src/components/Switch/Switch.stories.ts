@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { RCSwitch } from "./RCSwitch";
+import "./Switch.scss";
 
 const meta = {
   component: RCSwitch,
@@ -16,5 +17,6 @@ export const Primary: Story = {
     },
     onKeyDown: () => {},
     onClick: () => {},
+    background: "#fff",
   },
 };
