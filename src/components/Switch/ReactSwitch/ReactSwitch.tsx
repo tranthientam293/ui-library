@@ -22,7 +22,7 @@ export const ReactSwitch = React.forwardRef<ReactBaseSwitch, IReactSwitch>(
       >
         <ReactBaseSwitch
           {...rest}
-          width={40} //set witdh
+          width={44} //set witdh
           height={20}
           checkedIcon={false} //turn off icon when state is checked
           uncheckedIcon={false} //turn off icon when state is unchecked
