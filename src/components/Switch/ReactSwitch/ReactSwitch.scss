@@ -1,0 +1,27 @@
+.custom-react-switch {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+
+  &.disabled {
+    cursor: default;
+    color: #4e4e4e;
+  }
+
+  .switch-label {
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #000;
+    user-select: none;
+
+    &.disabled {
+      cursor: default;
+      color: #4e4e4e;
+    }
+  }
+}

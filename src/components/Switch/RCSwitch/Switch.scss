@@ -1,0 +1,74 @@
+.base-rc {
+  width: fit-content;
+  display: flex;
+  place-items: center;
+  gap: 8px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+
+  &.disabled {
+    &,
+    & > * {
+      cursor: not-allowed;
+      color: #4e4e4e;
+    }
+  }
+
+  label {
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #000;
+    user-select: none;
+  }
+
+  .base-rc-switch.rc-switch {
+    $padding: 2px;
+    $runner-width: 18px;
+    width: 40px;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 600;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover::after {
+      transform: none;
+      animation: unset;
+    }
+
+    &::after {
+      animation: unset;
+    }
+
+    .rc-switch-inner-checked {
+      left: 0;
+      transform: translate(-100%);
+    }
+
+    .rc-switch-inner-unchecked {
+      left: calc(100% - $padding * 2);
+      transform: translate(-100%);
+    }
+
+    &.rc-switch-checked {
+      border: 1px solid #029cfd;
+      background-color: #029cfd;
+
+      &::after {
+        left: calc(100% - $runner-width - $padding);
+      }
+
+      .rc-switch-inner-checked {
+        left: $padding;
+        transform: translate(0);
+      }
+
+      .rc-switch-inner-unchecked {
+        left: 100%;
+        transform: translate(0);
+      }
+    }
+  }
+}
