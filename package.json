@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "build-storybook -o docs-build"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@types/node": "20.7.1",
