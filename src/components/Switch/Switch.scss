@@ -1,14 +1,94 @@
 .switch {
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-weight: 400;
 }
 
 .base-rc-switch {
-  &::after {
-    content: attr("background");
+  $padding: 2px;
+  $runner-width: 18px;
+  width: 100%;
+
+  &.small {
+    min-width: 40px;
+    max-width: 40px;
+
+    .rc-switch-inner-checked,
+    .rc-switch-inner-unchecked {
+      transition: transform 100ms cubic-bezier(0.35, 0, 0.25, 1);
+    }
+
+    &::after {
+      transition: left 100ms cubic-bezier(0.35, 0, 0.25, 1);
+    }
   }
+
+  &.medium {
+    min-width: 40px;
+    max-width: 70px;
+
+    .rc-switch-inner-checked,
+    .rc-switch-inner-unchecked {
+      transition: transform 300ms cubic-bezier(0.35, 0, 0.25, 1);
+    }
+
+    &::after {
+      transition: left 300ms cubic-bezier(0.35, 0, 0.25, 1);
+    }
+  }
+
+  &.large {
+    min-width: 40px;
+    max-width: 100px;
+
+    .rc-switch-inner-checked,
+    .rc-switch-inner-unchecked {
+      transition: transform 400ms cubic-bezier(0.35, 0, 0.25, 1);
+    }
+
+    &::after {
+      transition: left 400ms cubic-bezier(0.35, 0, 0.25, 1);
+    }
+  }
+
   &.rc-switch-checked {
     border: 1px solid red;
     background-color: red;
+
+    &::after {
+      left: calc(100% - $runner-width - $padding);
+    }
+
+    .rc-switch-inner-checked {
+      left: $padding;
+      transform: translate(0);
+    }
+
+    .rc-switch-inner-unchecked {
+      left: 100%;
+      transform: translate(0);
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:hover::after {
+    transform: none;
+    animation: unset;
+  }
+
+  &::after {
+    animation: unset;
+  }
+
+  .rc-switch-inner-checked {
+    left: 0;
+    transform: translate(-100%);
+  }
+
+  .rc-switch-inner-unchecked {
+    left: calc(100% - $padding * 2);
+    transform: translate(-100%);
   }
 }

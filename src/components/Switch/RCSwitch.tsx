@@ -3,28 +3,28 @@ import BaseSwitch from "rc-switch";
 import "rc-switch/assets/index.css";
 import "./Switch.scss";
 
-export interface IRCSwitch
-  extends Omit<
-    React.HTMLAttributes<HTMLButtonElement>,
-    "onChange" | "onClick"
-  > {
-  className?: string;
-  prefixCls?: string;
+export interface IRCSwitch {
   disabled?: boolean;
-  checkedChildren?: React.ReactNode;
-  unCheckedChildren?: React.ReactNode;
   onChange?: SwitchChangeEventHandler;
-  onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;
-  onClick?: SwitchClickEventHandler;
   tabIndex?: number;
   checked?: boolean;
   defaultChecked?: boolean;
-  loadingIcon?: React.ReactNode;
   style?: React.CSSProperties;
-  title?: string;
-  background: string;
+  variant?: "small" | "medium" | "large";
+  innerValues?: [React.ReactNode, React.ReactNode];
 }
 
-export function RCSwitch({ ...rest }: IRCSwitch) {
-  return <BaseSwitch {...rest} className={"base-rc-switch"} />;
+export function RCSwitch({
+  variant = "small",
+  innerValues,
+  ...rest
+}: IRCSwitch) {
+  return (
+    <BaseSwitch
+      {...rest}
+      className={["base-rc-switch", variant].join(" ")}
+      checkedChildren={variant !== "small" && innerValues?.[0]}
+      unCheckedChildren={variant !== "small" && innerValues?.[1]}
+    />
+  );
 }

@@ -1,6 +1,10 @@
 import { RCSwitch } from "./RCSwitch";
-import styles from "./Switch.module.scss";
+import { ReactSwitch } from "./ReactSwitch";
+import "./Switch.scss";
 
-export function Switch() {
-  return <div className={styles.switch}></div>;
+interface ISwitch {
+  library: "rc-switch" | "react-switch";
+}
+export function Switch({ library }: ISwitch) {
+  return <>{library === "rc-switch" ? <RCSwitch /> : null}</>;
 }

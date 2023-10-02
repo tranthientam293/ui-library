@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { RCSwitch } from "./RCSwitch";
 import "./Switch.scss";
+import { RCSwitch } from "./RCSwitch";
 
 const meta = {
   component: RCSwitch,
@@ -12,11 +12,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    onChange: (checked) => {
-      console.log({ checked });
-    },
-    onKeyDown: () => {},
-    onClick: () => {},
-    background: "#fff",
+    innerValues: ["ON", "OFF"],
   },
 };
