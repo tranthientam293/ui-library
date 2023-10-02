@@ -9,7 +9,8 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_52a69369034fedb"
+    "chromatic": "npx chromatic --project-token=chpt_52a69369034fedb",
+    "build-static-webapp": "expo build:web"
   },
   "dependencies": {
     "@types/node": "20.7.1",
