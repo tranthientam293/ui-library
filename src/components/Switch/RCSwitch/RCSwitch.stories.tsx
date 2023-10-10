@@ -3,7 +3,7 @@ import { RCSwitch } from "./RCSwitch";
 
 const meta = {
   component: RCSwitch,
-  title: "components/RCSwitch",
+  title: "components/Switch/RCSwitch",
   tags: ["autodocs"],
 } satisfies Meta<typeof RCSwitch>;
 

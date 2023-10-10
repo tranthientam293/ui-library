@@ -3,7 +3,7 @@ import { ReactSwitch } from "./ReactSwitch";
 
 const meta = {
   component: ReactSwitch,
-  title: "components/ReactSwitch",
+  title: "components/Switch/ReactSwitch",
   tags: ["autodocs"],
 } satisfies Meta<typeof ReactSwitch>;
 
