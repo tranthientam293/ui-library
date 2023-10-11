@@ -19,5 +19,13 @@ body {
 }
 
 button {
+  font: inherit;
   cursor: pointer;
+}
+
+input {
+  font: inherit;
+  &:focus {
+    outline: none;
+  }
 }

@@ -1,13 +1,42 @@
-import BaseDropdown from "rc-dropdown";
-import "rc-dropdown/assets/index.css";
+import BaseDropdown from "rc-dropdown"
+import "rc-dropdown/assets/index.css"
+import styles from "./RCDropdown.module.scss"
+import { useMemo } from "react"
 
-interface IRCDropdown {
-  menu: JSX.Element;
+interface MenuItem {
+  key: number
+  title: string
+  value: string | number
+  render?: (title: string, key: number) => React.ReactNode
 }
-export function RCDropdown({ menu }: IRCDropdown) {
+interface IRCDropdown {
+  menu?: MenuItem[]
+  overlayClassName?: string
+}
+
+export function RCDropdown({ menu, overlayClassName }: IRCDropdown) {
+  const overlay: React.ReactNode | undefined = useMemo(() => {
+    if (menu) {
+      return (
+        <div className={[styles.overlay, overlayClassName].join(" ")}>
+          <ul>
+            {menu?.map((item) => (
+              <li key={item.key}>{item.title}</li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  }, [menu])
+
   return (
-    <BaseDropdown overlay={menu} trigger={["click"]} animation="slide-up">
-      <button>Click</button>
-    </BaseDropdown>
-  );
+    <div className={styles.base_dropdown}>
+      <BaseDropdown overlay={overlay} trigger={["click"]} animation="slide-up" offset>
+        <div className={styles.input}>
+          <input placeholder="Chose an option" />
+          <div className={styles.chevron}></div>
+        </div>
+      </BaseDropdown>
+    </div>
+  )
 }

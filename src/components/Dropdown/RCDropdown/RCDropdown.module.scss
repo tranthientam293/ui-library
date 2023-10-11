@@ -1,0 +1,50 @@
+.base_dropdown {
+  width: fit-content;
+
+  .input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+    padding: 8px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    border-radius: 4px;
+
+    input {
+      flex-grow: 1;
+      border: none;
+    }
+
+    .chevron {
+      width: 14px;
+      height: 7px;
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+      background-color: rgba($color: #000000, $alpha: 0.7);
+      transition: background-color linear 200ms;
+    }
+  }
+}
+
+.overlay {
+  min-width: 100px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  background-color: white;
+  padding: 4px 0;
+  border: 1px solid rgba($color: #000000, $alpha: 0.1);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+
+  ul {
+    li {
+      padding: 4px 8px;
+      list-style-type: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #a9a9a9;
+        color: #fff;
+      }
+    }
+  }
+}
