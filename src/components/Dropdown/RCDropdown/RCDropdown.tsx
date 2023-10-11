@@ -31,7 +31,7 @@ export function RCDropdown({ menu, overlayClassName }: IRCDropdown) {
 
   return (
     <div className={styles.base_dropdown}>
-      <BaseDropdown overlay={overlay} trigger={["click"]} animation="slide-up" offset>
+      <BaseDropdown overlay={overlay} trigger={["click"]} animation="slide-up">
         <div className={styles.input}>
           <input placeholder="Chose an option" />
           <div className={styles.chevron}></div>
