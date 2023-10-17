@@ -26,15 +26,13 @@ export function ReactDropdown({ options }: ReactDropdownProps) {
   }, [options, selected])
 
   return (
-    <div style={{ overflow: "hidden" }}>
-      <BaseDropdown
-        options={menu}
-        placeholder={"Click me"}
-        placeholderClassName={styles.placeholder}
-        className={styles.dropdown}
-        menuClassName={styles.menu}
-        onChange={(options) => setSelected(options.value)}
-      />
-    </div>
+    <BaseDropdown
+      options={menu}
+      placeholder={"Click me"}
+      placeholderClassName={styles.placeholder}
+      className={styles.dropdown}
+      menuClassName={styles.menu}
+      onChange={(options) => setSelected(options.value)}
+    />
   )
 }
