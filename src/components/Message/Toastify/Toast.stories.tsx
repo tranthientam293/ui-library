@@ -4,6 +4,7 @@ import styles from "./Toast.module.scss";
 
 const meta = {
   title: "Components/Message/Toast",
+  tags: ["autodocs"],
   component: Toastify,
   argTypes: {
     autoClose: {
