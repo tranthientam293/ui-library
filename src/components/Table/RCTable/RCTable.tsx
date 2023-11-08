@@ -115,16 +115,6 @@ export function RCTable<T extends RecordType = any>({
                 <ChevronRight />
               </button>
             }
-            // jumpNextIcon={
-            //   <button className="rc-pagination-item-link">
-            //     <ChevronDoubleRight />
-            //   </button>
-            // }
-            // jumpPrevIcon={
-            //   <button className="rc-pagination-item-link">
-            //     <ChevronDoubleLeft />
-            //   </button>
-            // }
           />
         ) : null
       }
