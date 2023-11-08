@@ -1,0 +1,209 @@
+.custom-table {
+  $border-color: #ccc;
+  $background-color: #fafafa;
+  $border-width: 0.0625rem;
+  $border-radius: 0.375rem;
+  $border-pattern: $border-width solid $border-color;
+
+  .custom-table-container {
+    .custom-table-content {
+      table {
+        table-layout: fixed;
+        width: 100%;
+        border-spacing: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        border: $border-pattern;
+
+        thead {
+          .custom-table-row-expand-icon-cell {
+            width: 3.125rem;
+          }
+          tr {
+            td {
+              background-color: $background-color;
+              border-bottom: $border-pattern;
+            }
+            th {
+              background-color: $background-color;
+              padding: 0.5rem 1rem;
+              border: $border-pattern;
+              border-top: none;
+              border-left: none;
+
+              &:nth-child(2) {
+                border-top-left-radius: $border-radius;
+              }
+
+              &:first-child {
+                border-top-left-radius: $border-radius;
+              }
+
+              &:last-child {
+                border-top-right-radius: $border-radius;
+                border-right: none;
+              }
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              padding: 0.5rem 1rem;
+              border-bottom: $border-pattern;
+              border-right: $border-pattern;
+
+              &:first-child,
+              &:nth-child(2) {
+                border-left: $border-pattern;
+                border-left: none;
+              }
+
+              &:last-child {
+                border-right: none;
+              }
+
+              &:has(.expanded-row) {
+                background-color: #f8f8f8;
+              }
+            }
+
+            &:nth-last-child(2) {
+              td {
+                border-bottom: none;
+              }
+            }
+
+            &:last-child {
+              td {
+                border-top: $border-pattern;
+                border-bottom: none;
+                &:first-child {
+                  border-bottom-left-radius: $border-radius;
+                }
+
+                &:last-child {
+                  border-bottom-right-radius: $border-radius;
+                }
+
+                &:has(.no-data) {
+                  border-top: none;
+                }
+
+                .no-data {
+                  font-size: 2rem;
+                  padding: 2rem;
+                  text-align: center;
+                }
+              }
+            }
+
+            .expanded {
+              svg {
+                transform: rotate(180deg);
+              }
+            }
+
+            .expanded-row {
+              padding: 0.5rem 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .custom-table-footer {
+    .custom-pagination {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 1rem;
+
+      .rc-pagination-total-text {
+        flex-grow: 1;
+      }
+
+      .rc-pagination-options {
+        display: none;
+      }
+
+      .rc-pagination-item {
+        border-radius: 0.375rem;
+
+        &:hover {
+          border-color: #292929;
+          & a {
+            color: #292929;
+          }
+        }
+      }
+
+      .rc-pagination-jump-next,
+      .rc-pagination-jump-prev {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          width: 0.75rem;
+          height: 0.75rem;
+        }
+      }
+
+      .rc-pagination-item-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.375rem;
+
+        &:not(:disabled):hover {
+          color: #292929;
+          border-color: #292929;
+        }
+      }
+
+      .rc-pagination-next,
+      .rc-pagination-prev {
+        .rc-pagination-item-link {
+          &::after {
+            content: none;
+          }
+        }
+      }
+
+      .rc-pagination-item-active {
+        background-color: #292929;
+        border-color: #292929;
+
+        &:hover {
+          & a {
+            color: #fff;
+          }
+        }
+        & a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  $color: #292929;
+  $background: #f0f0f0;
+  button {
+    display: block;
+    background-color: $background;
+    color: $color;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    margin: 0 auto;
+
+    &:hover {
+      background-color: $color;
+      color: $background;
+    }
+  }
+}
