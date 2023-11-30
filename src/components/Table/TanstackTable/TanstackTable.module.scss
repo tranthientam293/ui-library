@@ -2,6 +2,13 @@ $blue-01: #27bbff;
 $green-01: #2eff31;
 $white-01: #ffffffcc;
 $gray-01: #a0aec0;
+
+.tanstack_wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
 .tanstack_table {
   border-collapse: collapse;
   color: $white-01;
@@ -53,6 +60,7 @@ $gray-01: #a0aec0;
 
 .editable_cell {
   display: block;
+  width: 100%;
   background-color: transparent;
   color: $white-01;
   padding: 4px 8px;
@@ -62,7 +70,7 @@ $gray-01: #a0aec0;
 
   &:focus {
     border-color: $white-01;
-    box-shadow: 0 0 2px 2px $blue-01;
+    box-shadow: 0 0 2px 3px $blue-01;
   }
 }
 
@@ -73,12 +81,16 @@ $gray-01: #a0aec0;
   color: $white-01;
   border: none;
   outline: none;
-
-  &:focus {
-  }
+  padding: 8px;
+  border-radius: 4px;
 
   option {
-    background: $gray-01;
+    background-color: $gray-01;
     border: none;
   }
+}
+
+.date_cell {
+  display: block;
+  margin: 0 auto;
 }

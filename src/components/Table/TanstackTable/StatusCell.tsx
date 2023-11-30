@@ -1,5 +1,9 @@
 import type { CellContext } from "@tanstack/react-table";
-import type { Status, TanstackRecord } from "./TanstackTableTypes";
+import type {
+  Status,
+  TanstackMeta,
+  TanstackRecord,
+} from "./TanstackTableTypes";
 import { STATUSES } from "./TanstackTable.mock";
 import styles from "./TanstackTable.module.scss";
 
@@ -12,15 +16,25 @@ export const StatusCell = ({
   table,
 }: StatusCellProps) => {
   const { name, color } = getValue() || {};
+  const onChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+    const status =
+      STATUSES.find((item) => item.name === e.target.value) || null;
+    const meta = table.options.meta as TanstackMeta;
+    meta?.updateData(row.index, column.id, status);
+  };
+
   return (
     <select
       className={styles.status_cell}
       style={{ backgroundColor: color || "transparent" }}
-      value={name || ""}
+      value={name}
+      onChange={onChange}
     >
-      <option style={{ display: "none" }}></option>
+      <option>-</option>
       {STATUSES.map((status) => (
-        <option key={status.name}>{status.name}</option>
+        <option key={status.name} value={status.name}>
+          {status.name}
+        </option>
       ))}
     </select>
   );
