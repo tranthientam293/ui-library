@@ -1,18 +1,16 @@
-import { EditableCell } from "./EditableCell";
-import { TANSTACK_MOCK_DATA } from "./TanstackTable.mock";
-import styles from "./TanstackTable.module.scss";
+import React from "react"
+import { TANSTACK_MOCK_DATA } from "./TanstackTable.mock"
+import styles from "./TanstackTable.module.scss"
 import {
   useReactTable,
   ColumnDef,
   getCoreRowModel,
   flexRender,
-} from "@tanstack/react-table";
-import React from "react";
-import type { TanstackMeta, TanstackRecord } from "./TanstackTableTypes";
-import { StatusCell } from "./StatusCell";
-import { DateCell } from "./DateCell";
+  getPaginationRowModel,
+} from "@tanstack/react-table"
+import { DateCell, EditableCell, StatusCell } from "./CustomCells"
 
-type TanstackTablePRops = {};
+type TanstackTablePRops = {}
 
 const columns: ColumnDef<TanstackRecord, any>[] = [
   {
@@ -39,16 +37,19 @@ const columns: ColumnDef<TanstackRecord, any>[] = [
     cell: (props) => <p>{props.getValue()}</p>,
     size: 225,
   },
-];
+]
 
 export const TanstackTable = ({}: TanstackTablePRops) => {
-  const [data, setData] = React.useState<TanstackRecord[]>(TANSTACK_MOCK_DATA);
+  const [data, setData] = React.useState<TanstackRecord[]>(TANSTACK_MOCK_DATA)
   const tableInstance = useReactTable<TanstackRecord>({
     //required values
     data: data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     //required values
+
+    //automatic pagination
+    getPaginationRowModel: getPaginationRowModel(),
     columnResizeMode: "onChange", //how column resizing is applied, onChange: applied immediately, onEnd: applied when resizing done
     //functions manipulating each cell of table
     meta: {
@@ -63,11 +64,12 @@ export const TanstackTable = ({}: TanstackTablePRops) => {
               : row
           )
         ),
-    } as TanstackMeta,
-  });
+    },
+  })
 
-  const headerGroups = tableInstance.getHeaderGroups();
-  const tableBody = tableInstance.getRowModel();
+  // DO NOT cached 2 below properties, because it need change when update global data
+  const headerGroups = tableInstance.getHeaderGroups()
+  const tableBody = tableInstance.getRowModel()
 
   return (
     <div className={styles.tanstack_wrapper}>
@@ -113,6 +115,50 @@ export const TanstackTable = ({}: TanstackTablePRops) => {
           ))}
         </tbody>
       </table>
+      <div className={styles.pagination}>
+        <button
+          className={styles.pagination_btn}
+          onClick={() => tableInstance.previousPage()}
+          disabled={!tableInstance.getCanPreviousPage()}
+        >
+          prev
+        </button>
+        {tableInstance.getPageOptions().map((page, i) => (
+          <button
+            key={i}
+            className={`${styles.pagination_btn} ${
+              page === tableInstance.getState().pagination.pageIndex
+                ? styles.active
+                : ""
+            }`}
+            onClick={() => tableInstance.setPageIndex(page)}
+          >
+            {page + 1}
+          </button>
+        ))}
+        <button
+          className={styles.pagination_btn}
+          onClick={() => tableInstance.nextPage()}
+          disabled={!tableInstance.getCanNextPage()}
+        >
+          next
+        </button>
+        <label htmlFor="page-size" className={styles.page_size_label}>
+          Choose page size
+        </label>
+        <select
+          id="page-size"
+          className={styles.page_size_select}
+          onChange={(e) => tableInstance.setPageSize(parseInt(e.target.value))}
+          value={tableInstance.getState().pagination.pageSize}
+        >
+          {[5, 10, 15, 20].map((value) => (
+            <option key={value} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
-  );
-};
+  )
+}

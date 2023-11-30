@@ -1,19 +1,17 @@
-import { Status, TanstackRecord } from "./TanstackTableTypes";
-
-const STATUS_ON_DECK = { id: 1, name: "On Deck", color: "#63b3ed" };
+const STATUS_ON_DECK = { id: 1, name: "On Deck", color: "#63b3ed" }
 const STATUS_IN_PROGRESS = {
   id: 2,
   name: "In Progress",
   color: "#ecc94b",
-};
-const STATUS_TESTING = { id: 3, name: "Testing", color: "#f687b3" };
-const STATUS_DEPLOYED = { id: 4, name: "Deployed", color: "#68d391" };
+}
+const STATUS_TESTING = { id: 3, name: "Testing", color: "#f687b3" }
+const STATUS_DEPLOYED = { id: 4, name: "Deployed", color: "#68d391" }
 export const STATUSES = [
   STATUS_ON_DECK,
   STATUS_IN_PROGRESS,
   STATUS_TESTING,
   STATUS_DEPLOYED,
-];
+]
 
 export const TANSTACK_MOCK_DATA: TanstackRecord[] = [
   {
@@ -148,4 +146,4 @@ export const TANSTACK_MOCK_DATA: TanstackRecord[] = [
     due: new Date("2023/09/18"),
     notes: "Enhance permissions.",
   },
-];
+]
