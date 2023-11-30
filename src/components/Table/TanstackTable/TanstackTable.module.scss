@@ -1,0 +1,133 @@
+$blue-01: #27bbff;
+$green-01: #2eff31;
+$white-01: #ffffffcc;
+$gray-01: #a0aec0;
+
+.tanstack_wrapper {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.tanstack_table {
+  border-collapse: collapse;
+  color: $white-01;
+  font-size: 14px;
+
+  &_thead {
+    tr.tanstack_table_row {
+      th.tanstack_table_th {
+        position: relative;
+        padding: 8px;
+        border: 1px solid #ffffffcc;
+
+        &:hover > .resizer {
+          opacity: 1;
+        }
+
+        .resizer {
+          position: absolute;
+          content: "";
+          width: 4px;
+          height: 96%;
+          top: 2%;
+          right: 0;
+          background-color: $blue-01;
+          cursor: col-resize;
+          user-select: none;
+          touch-action: none;
+          border-radius: 2px;
+          opacity: 0;
+
+          &.isResizing {
+            background-color: $green-01;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &_tbody {
+    tr.tanstack_table_row {
+      td.tanstack_table_td {
+        padding: 8px;
+        border: 1px solid $white-01;
+      }
+    }
+  }
+}
+
+.editable_cell {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  color: $white-01;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all linear 200ms;
+
+  &:focus {
+    border-color: $white-01;
+    box-shadow: 0 0 2px 3px $blue-01;
+  }
+}
+
+.status_cell {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: $white-01;
+  border: none;
+  outline: none;
+  padding: 8px;
+  border-radius: 4px;
+
+  option {
+    background-color: $gray-01;
+    border: none;
+  }
+}
+
+.date_cell {
+  display: block;
+  margin: 0 auto;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+
+  &_btn {
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+
+    &.active {
+      font-weight: 700;
+      background-color: $blue-01;
+    }
+  }
+}
+
+.page_size {
+  &_label {
+    color: $white-01;
+    margin-left: auto;
+  }
+
+  &_select {
+    font: inherit;
+    padding: 2px 6px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+  }
+}
