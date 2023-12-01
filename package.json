@@ -15,6 +15,7 @@
   "dependencies": {
     "@tanstack/react-table": "^8.10.7",
     "@types/node": "20.7.1",
+    "@types/rc-tooltip": "^3.7.10",
     "@types/react": "18.2.23",
     "@types/react-dom": "18.2.8",
     "eslint": "8.50.0",
@@ -25,6 +26,7 @@
     "rc-pagination": "^3.7.0",
     "rc-switch": "^4.1.0",
     "rc-table": "^7.35.2",
+    "rc-tooltip": "6.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-dropdown": "^1.11.0",
