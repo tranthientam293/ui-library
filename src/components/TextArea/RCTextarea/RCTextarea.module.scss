@@ -1,0 +1,53 @@
+$black-01: #292929;
+$gray-01: #595959;
+$gray-02: #a5a5a5;
+
+.custom_textarea_wrapper {
+  position: relative;
+  .clear_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    transform: translate(-150%, 10px);
+
+    svg {
+      width: 14px;
+      height: 14px;
+      color: $gray-02;
+      transition: color linear 200ms;
+    }
+
+    &:hover {
+      svg {
+        color: $gray-01;
+      }
+    }
+  }
+}
+
+.custom_textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $black-01;
+  padding: 6px 36px 6px 12px;
+  border: 1px solid $gray-02;
+  border-radius: 6px;
+  transition: box-shadow linear 100ms;
+  resize: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 1px 3px rgba($color: $gray-01, $alpha: 0.4);
+  }
+
+  &::placeholder {
+    font: inherit;
+    color: $gray-02;
+  }
+}
