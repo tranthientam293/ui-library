@@ -1,30 +1,33 @@
-import React from "react"
-import { Tooltip } from "react-tooltip"
-import "react-tooltip/dist/react-tooltip.css"
-import "./ReactTooltip.scss"
+import React from "react";
+import { Tooltip, ITooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+import "./ReactTooltip.scss";
 
-interface ReactTooltipProps {}
-export function ReactTooltip({}: ReactTooltipProps) {
-  const [id, setId] = React.useState<string>()
-  const content =
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tempora adipisci ullam debitis facere sed nesciunt sunt nulla, accusamus numquam dolores, blanditiis doloribus facilis. Atque explicabo adipisci nihil maiores ratione."
-  console.log(id)
-
+interface ReactTooltipProps
+  extends Pick<ITooltip, "id" | "place" | "offset" | "variant" | "opacity"> {
+  content?: React.ReactNode;
+}
+export function ReactTooltip({
+  id,
+  content,
+  place,
+  offset,
+  variant,
+  opacity,
+}: ReactTooltipProps) {
   return (
-    <div className="container">
-      <button
-        className="button"
-        data-tooltip-id="my-tooltip"
-        data-tooltip-content={content}
-        data-tooltip-place="top"
-        onMouseEnter={() => {
-          setId("my-tooltip")
-        }}
-      >
-        Click me
-      </button>
-
-      <Tooltip id={id} clickable />
-    </div>
-  )
+    <Tooltip
+      id={id} // id connecting to item that trigger tooltip
+      clickable // interact with content of tooltip
+      opacity={opacity} // opacity of wrapper
+      place={place} // positon of tooltip
+      // isOpen={true} // controlled display of tooltip, true -> always show, false -> always hide
+      offset={offset} // distance between triggered item and tooltip
+      variant={variant}
+      afterShow={() => console.log("show")}
+      afterHide={() => console.log("hide")}
+    >
+      {content}
+    </Tooltip>
+  );
 }

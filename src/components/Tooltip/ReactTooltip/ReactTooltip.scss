@@ -4,7 +4,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  border: 4px solid #292929;
   margin: 0 auto;
   overflow: hidden;
+
+  .button {
+    color: #fff;
+    background-color: #292929;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.react-tooltip {
+  width: 400px !important;
+  line-height: 1.5;
 }
