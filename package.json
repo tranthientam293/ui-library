@@ -29,6 +29,7 @@
     "rc-textarea": "1.5.3",
     "rc-tooltip": "6.1.2",
     "react": "18.2.0",
+    "react-calendar": "4.6.1",
     "react-dom": "18.2.0",
     "react-dropdown": "^1.11.0",
     "react-switch": "^7.0.0",
