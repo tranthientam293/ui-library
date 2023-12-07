@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react"
-import BaseDropdown, { Group, Option } from "react-dropdown"
-import { ReactDropdownProps as BaseProps } from "react-dropdown"
+import BaseDropdown, { Option } from "react-dropdown"
 import styles from "./ReactDropdown.module.scss"
 
 type ReactDropdownProps = {

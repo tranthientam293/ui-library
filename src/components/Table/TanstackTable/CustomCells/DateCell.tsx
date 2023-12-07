@@ -1,8 +1,8 @@
-import React from "react"
 import { CellContext } from "@tanstack/react-table"
+import React from "react"
 import styles from "../TanstackTable.module.scss"
 
-type StatusCellProps = CellContext<TanstackRecord, Date> & {}
+type StatusCellProps = CellContext<TanstackRecord, Date>
 
 export function DateCell({ getValue, column, row, table }: StatusCellProps) {
   const date = getValue()

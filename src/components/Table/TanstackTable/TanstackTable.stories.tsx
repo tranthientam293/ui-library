@@ -13,9 +13,9 @@ type Story = StoryObj<typeof TanstackTable>;
 
 export const Primary: Story = {
   args: {},
-  render: (args) => (
+  render: () => (
     <div style={{ backgroundColor: "#171923" }}>
-      <TanstackTable {...args} />
+      <TanstackTable />
     </div>
   ),
 };

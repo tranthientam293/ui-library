@@ -4,7 +4,7 @@ import {
   ExpandableConfig,
 } from "rc-table/lib/interface";
 
-type RecordType = DefaultRecordType & {};
+type RecordType = DefaultRecordType;
 export const columns: ColumnType<RecordType>[] = [
   {
     title: "Name",

@@ -1,13 +1,9 @@
 import {
-  toast,
+  Bounce,
+  CloseButtonProps,
   ToastContainer,
   ToastContainerProps,
-  CloseButtonProps,
-  Bounce,
-  Flip,
-  Slide,
-  Zoom,
-  cssTransition,
+  toast,
 } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Toast.module.scss";
@@ -15,7 +11,7 @@ import styles from "./Toast.module.scss";
 const DEFAULT_DURATION = 1000;
 const DEFAULT_POSITION = toast.POSITION.TOP_RIGHT;
 
-type ToastifyProps = ToastContainerProps & {};
+interface ToastifyProps extends ToastContainerProps{}
 export function Toastify(props: ToastifyProps) {
   const options: ToastifyProps = {
     autoClose: DEFAULT_DURATION,
