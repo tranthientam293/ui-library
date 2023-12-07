@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import TextArea from "rc-textarea";
+import React from "react";
 import styles from "./RCTextarea.module.scss";
 
 interface IRCTextarea {

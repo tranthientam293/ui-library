@@ -1,8 +1,8 @@
+import { CellContext } from "@tanstack/react-table"
 import React from "react"
 import styles from "../TanstackTable.module.scss"
-import { CellContext } from "@tanstack/react-table"
 
-type EditableCellProps = CellContext<TanstackRecord, string> & {}
+type EditableCellProps = CellContext<TanstackRecord, string> 
 export const EditableCell = ({
   getValue,
   row,

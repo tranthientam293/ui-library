@@ -1,8 +1,8 @@
 import type { CellContext } from "@tanstack/react-table"
-import styles from "../TanstackTable.module.scss"
 import { STATUSES } from "../TanstackTable.mock"
+import styles from "../TanstackTable.module.scss"
 
-type StatusCellProps = CellContext<TanstackRecord, Status> & {}
+type StatusCellProps = CellContext<TanstackRecord, Status> 
 
 export const StatusCell = ({
   getValue,

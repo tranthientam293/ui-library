@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { RCDropdown } from "./RCDropdown";
-import { useState } from "react";
 
 const meta = {
   title: "components/Dropdown/RCDropdown",

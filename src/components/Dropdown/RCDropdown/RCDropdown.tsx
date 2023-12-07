@@ -1,7 +1,7 @@
 import BaseDropdown from "rc-dropdown";
 import "rc-dropdown/assets/index.css";
-import styles from "./RCDropdown.module.scss";
 import { useMemo } from "react";
+import styles from "./RCDropdown.module.scss";
 
 interface MenuItem {
   key: number;
@@ -26,6 +26,7 @@ export function RCDropdown({ menu, overlayClassName, onChange }: IRCDropdown) {
                 key={item.key}
                 onClick={() => {
                   if (onChange !== undefined) {
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     const { render, ...data } = item;
                     onChange(data);
                   }

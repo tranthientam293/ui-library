@@ -1,16 +1,14 @@
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  useReactTable,
+} from "@tanstack/react-table"
 import React from "react"
+import { DateCell, EditableCell, StatusCell } from "./CustomCells"
 import { TANSTACK_MOCK_DATA } from "./TanstackTable.mock"
 import styles from "./TanstackTable.module.scss"
-import {
-  useReactTable,
-  ColumnDef,
-  getCoreRowModel,
-  flexRender,
-  getPaginationRowModel,
-} from "@tanstack/react-table"
-import { DateCell, EditableCell, StatusCell } from "./CustomCells"
-
-type TanstackTablePRops = {}
 
 const columns: ColumnDef<TanstackRecord, any>[] = [
   {
@@ -39,7 +37,7 @@ const columns: ColumnDef<TanstackRecord, any>[] = [
   },
 ]
 
-export const TanstackTable = ({}: TanstackTablePRops) => {
+export const TanstackTable = () => {
   const [data, setData] = React.useState<TanstackRecord[]>(TANSTACK_MOCK_DATA)
   const tableInstance = useReactTable<TanstackRecord>({
     //required values
