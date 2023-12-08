@@ -4,5 +4,12 @@ import './RCCalendar.scss'
 
 interface IRCCalendar extends Props {}
 export function RCCalendar(props: IRCCalendar) {
-  return <Calendar {...props} className="calendar-custom" />
+  return (
+    <Calendar
+      {...props}
+      className="calendar-custom"
+      showDateInput={false}
+      showToday={false}
+    />
+  )
 }
