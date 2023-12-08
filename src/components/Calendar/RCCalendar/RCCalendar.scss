@@ -1,0 +1,225 @@
+$violet-01: #9747ff;
+$white-01: #ffffff;
+$gray-01: #d9d9d9;
+$gray-02: #e6e6e6;
+$black-01: #292929;
+$red-01: #c21807;
+
+.calendar-custom {
+  width: 350px;
+  height: auto;
+  font: inherit;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 5px rgba($color: $gray-01, $alpha: 0.5);
+  overflow: hidden;
+
+  .rc-calendar-header {
+    background-color: $violet-01;
+    .rc-calendar {
+      &-year-select,
+      &-month-select {
+        font: inherit;
+        color: $white-01;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &-next-month-btn,
+      &-prev-month-btn,
+      &-next-year-btn,
+      &-prev-year-btn {
+        color: $white-01;
+
+        &:hover {
+          color: $black-01;
+        }
+      }
+    }
+  }
+
+  .rc-calendar-month-panel-header {
+    background-color: $violet-01;
+    border-bottom: none;
+
+    a[role='button']:not(.rc-calendar-month-panel-year-select) {
+      font: inherit;
+      font-size: 14px;
+      color: $white-01;
+
+      &:hover {
+        color: $black-01;
+      }
+    }
+
+    .rc-calendar-month-panel-year-select {
+      font: inherit;
+      font-size: 14px;
+      color: $white-01;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .rc-calendar-year-panel-header {
+    background-color: $violet-01;
+    border-bottom: none;
+
+    .rc-calendar-year-panel-prev-decade-btn,
+    .rc-calendar-year-panel-next-decade-btn {
+      color: $white-01;
+
+      &:hover {
+        color: $black-01;
+      }
+    }
+    .rc-calendar-year-panel-decade-select {
+      font: inherit;
+      color: $white-01;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .rc-calendar-body {
+    height: auto;
+
+    .rc-calendar-date {
+      width: auto;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      border: none;
+      border-radius: 0;
+
+      &:hover {
+        background-color: $gray-01;
+      }
+    }
+
+    .rc-calendar-selected-date {
+      &.rc-calendar-today {
+        .rc-calendar-date {
+          font-weight: 700;
+          color: $white-01;
+        }
+      }
+      .rc-calendar-date {
+        background-color: $violet-01;
+      }
+    }
+
+    .rc-calendar-today {
+      .rc-calendar-date {
+        font-weight: 700;
+        color: $violet-01;
+      }
+    }
+
+    .rc-calendar-cell {
+      &.rc-calendar-selected-day {
+        .rc-calendar-date {
+          font-weight: 700;
+          color: $white-01;
+          background-color: $violet-01;
+        }
+      }
+    }
+  }
+
+  .rc-calendar-month-panel-body {
+    .rc-calendar-month-panel-table {
+      .rc-calendar-month-panel-cell {
+        & > a {
+          background-color: transparent;
+        }
+
+        &:hover {
+          background-color: $gray-01;
+        }
+
+        &.rc-calendar-month-panel-selected-cell {
+          background-color: $violet-01;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+
+  .rc-calendar-year-panel-body {
+    .rc-calendar-year-panel-cell {
+      a {
+        background-color: transparent;
+      }
+
+      &:hover {
+        background-color: $gray-01;
+      }
+
+      &.rc-calendar-year-panel-selected-cell {
+        background-color: $violet-01;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .rc-calendar-decade-panel-header {
+    background-color: $violet-01;
+
+    .rc-calendar-decade-panel-prev-century-btn,
+    .rc-calendar-decade-panel-next-century-btn {
+      color: $white-01;
+      &:hover {
+        color: $black-01;
+      }
+    }
+
+    .rc-calendar-decade-panel-century {
+      font: inherit;
+      color: $white-01;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .rc-calendar-decade-panel-tbody {
+    .rc-calendar-decade-panel-cell {
+      & > a {
+        background-color: transparent;
+      }
+
+      &:hover {
+        background-color: $gray-01;
+      }
+
+      &.rc-calendar-decade-panel-selected-cell {
+        background-color: $violet-01;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        & > a {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
