@@ -1,6 +1,7 @@
 $violet-01: #9747ff;
 $white-01: #ffffff;
 $gray-01: #d9d9d9;
+$gray-02: #e6e6e6;
 $black-01: #292929;
 $red-01: #c21807;
 
@@ -76,6 +77,28 @@ $red-01: #c21807;
       background-color: $gray-01;
     }
 
+    &.react-calendar__tile--now {
+      &.react-calendar__century-view__decades__decade,
+      &.react-calendar__decade-view__years__year,
+      &.react-calendar__year-view__months__month {
+        color: $white-01;
+        background-color: $violet-01;
+      }
+    }
+
+    &--hasActive {
+      &:enabled {
+        font-weight: 700;
+        background-color: transparent;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+          opacity: 0.9;
+        }
+      }
+    }
+
     &.react-calendar__month-view__days__day {
       color: $black-01;
 
@@ -90,7 +113,7 @@ $red-01: #c21807;
       &.react-calendar__tile--now {
         font-weight: 700;
         color: $violet-01;
-        background-color: transparent;
+        background-color: $white-01;
 
         &:hover {
           background-color: $gray-01;
@@ -103,37 +126,37 @@ $red-01: #c21807;
           &:hover {
             background: rgba($gray-01, 0.7);
           }
+
+          &.react-calendar__tile--range {
+            background-color: $gray-01;
+            color: $violet-01;
+          }
+        }
+
+        &.react-calendar__tile--hover {
+          background-color: $gray-02;
         }
       }
     }
-  }
-
-  .react-calendar__tile--active {
-    background-color: $gray-01;
-    color: $black-01;
-  }
-
-  .react-calendar__tile--rangeStart {
-    background-color: $violet-01;
-    color: $white-01;
-    &:hover {
-      background-color: rgba($color: $violet-01, $alpha: 0.7) !important;
+    &.react-calendar__tile--active {
+      background-color: $gray-01;
+      color: $black-01;
     }
-  }
-  .react-calendar__tile--rangeEnd {
-    background-color: $violet-01;
-    color: $white-01;
 
-    &:hover {
-      background-color: rgba($color: $violet-01, $alpha: 0.7) !important;
+    &.react-calendar__tile--rangeStart {
+      background-color: $violet-01;
+      color: $white-01;
+      &:hover {
+        background-color: rgba($color: $violet-01, $alpha: 0.7);
+      }
     }
-  }
+    &.react-calendar__tile--rangeEnd {
+      background-color: $violet-01;
+      color: $white-01;
 
-  .react-calendar__tile--hasActive {
-    color: $white-01;
-    background-color: $violet-01 !important;
-    &:hover {
-      opacity: 0.9;
+      &:hover {
+        background-color: rgba($color: $violet-01, $alpha: 0.7);
+      }
     }
   }
 }

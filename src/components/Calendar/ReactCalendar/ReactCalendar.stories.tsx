@@ -10,7 +10,8 @@ const meta = {
     calendarType: {
       control: 'inline-radio',
     },
-    defaultView: { control: 'inline-radio' },
+    // view: { control: 'inline-radio' },
+    showNavigation: { control: 'boolean' },
   },
 } satisfies Meta<typeof ReactCalendar>
 
@@ -23,8 +24,10 @@ export const Primary: Story = {
     selectRange: false,
     locale: 'en-GB',
     calendarType: 'gregory',
-    defaultView: 'month',
+    // view: 'month',
     onChange: (date) => console.log({ date }),
+    showNavigation: true,
+    showWeekNumbers: false,
   },
 
   render: (args) => (

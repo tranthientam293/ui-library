@@ -7,7 +7,12 @@ import { JumpNext, JumpPrev, Next, Prev } from './icons'
 interface ReactCalendarProps
   extends Pick<
     CalendarProps,
-    'selectRange' | 'locale' | 'onChange' | 'defaultView'
+    | 'selectRange'
+    | 'locale'
+    | 'onChange'
+    // | 'view'
+    | 'showNavigation'
+    | 'showWeekNumbers'
   > {
   calendarType?: CalendarType
 }
@@ -18,7 +23,6 @@ export function ReactCalendar({ selectRange, ...props }: ReactCalendarProps) {
       selectRange={selectRange}
       allowPartialRange={selectRange}
       className="custom-react-calendar"
-      goToRangeStartOnSelect={true}
       nextLabel={<Next />}
       prevLabel={<Prev />}
       next2Label={<JumpNext />}
