@@ -33,6 +33,7 @@
     "react-calendar": "4.6.1",
     "react-dom": "18.2.0",
     "react-dropdown": "^1.11.0",
+    "react-paginate": "^8.2.0",
     "react-switch": "^7.0.0",
     "react-table": "^7.8.0",
     "react-textarea-autosize": "8.5.3",
