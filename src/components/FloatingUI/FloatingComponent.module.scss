@@ -1,0 +1,20 @@
+.trigger_button {
+  width: 500px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+
+  &:hover,
+  &.active {
+    background-color: #292929;
+    color: #fff;
+  }
+}
+
+.container {
+  min-width: 500px;
+  background-color: red;
+  padding: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+}

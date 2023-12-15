@@ -13,6 +13,7 @@
     "build-static-webapp": "expo build:web"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.3",
     "@tanstack/react-table": "^8.10.7",
     "@types/node": "20.7.1",
     "@types/rc-tooltip": "^3.7.10",
