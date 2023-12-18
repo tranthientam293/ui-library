@@ -1,8 +1,11 @@
 import {
+  FloatingArrow,
   arrow,
   autoUpdate,
+  flip,
   offset,
   useClick,
+  useDismiss,
   useFloating,
   useInteractions,
 } from '@floating-ui/react'
@@ -11,8 +14,8 @@ import styles from './FloatingComponent.module.scss'
 
 export function FloatingComponent() {
   const [isOpen, setIsOpen] = React.useState(false)
-  const arrowRef = React.useRef<HTMLDivElement>(null)
-  const { refs, floatingStyles, context, middlewareData } = useFloating({
+  const arrowRef = React.useRef(null)
+  const { refs, floatingStyles, context } = useFloating({
     whileElementsMounted: autoUpdate,
     open: isOpen,
     onOpenChange: setIsOpen,
@@ -28,21 +31,30 @@ export function FloatingComponent() {
       }),
       arrow({
         element: arrowRef,
+        padding: 10,
       }),
+      flip({}),
     ],
   })
 
   const click = useClick(context)
+  const dismiss = useDismiss(context)
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([click])
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    click,
+    dismiss,
+  ])
+
+  const classNames = isOpen
+    ? `${styles.trigger_button} ${styles.active}`
+    : styles.trigger_button
 
   return (
     <>
-      <input />
       <button
         ref={refs.setReference}
         {...getReferenceProps()}
-        className={styles.trigger_button}
+        className={classNames}
       >
         Button
       </button>
@@ -53,19 +65,8 @@ export function FloatingComponent() {
           {...getFloatingProps()}
           className={styles.container}
         >
-          <div
-            ref={arrowRef}
-            style={{
-              position: 'absolute',
-              bottom: -10,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              background: 'red',
-              width: 20,
-              height: 10,
-              clipPath: 'polygon(50% 100%, 0 0, 100% 0)',
-            }}
-          />
+          {/* use this built-in component for flipping arrow */}
+          <FloatingArrow ref={arrowRef} context={context} fill="#292929" />
           Tooltip
         </div>
       )}

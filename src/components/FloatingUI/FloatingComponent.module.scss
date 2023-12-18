@@ -1,20 +1,43 @@
+$background-color: #292929;
+$text-color: #fafafa;
+
 .trigger_button {
-  width: 500px;
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
+  transition: box-shadow 200ms ease-in-out;
 
-  &:hover,
+  &:hover {
+    box-shadow: 0 0 0 4px rgba($background-color, 0.3);
+  }
+
   &.active {
     background-color: #292929;
-    color: #fff;
+    color: $text-color;
+
+    &:hover {
+      box-shadow: none;
+      opacity: 0.8;
+    }
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
 .container {
-  min-width: 500px;
-  background-color: red;
-  padding: 8px;
+  max-width: 500px;
+
+  background-color: $background-color;
+  color: $text-color;
+  padding: 8px 16px;
   margin-bottom: 8px;
+  border-radius: 6px;
   text-align: center;
+}
+
+.arrow {
+  background: $background-color;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
 }

@@ -6,18 +6,6 @@ const meta = {
   component: FloatingComponent,
   tags: ['autodocs'],
   argTypes: {},
-  render: () => (
-    <div
-      style={{
-        height: 300,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <FloatingComponent />
-    </div>
-  ),
 } satisfies Meta<typeof FloatingComponent>
 
 export default meta
@@ -26,4 +14,24 @@ type Story = StoryObj<typeof FloatingComponent>
 
 export const Primary: Story = {
   args: {},
+  render: () => (
+    <div
+      style={{
+        height: 300,
+
+        overflow: 'auto',
+      }}
+    >
+      <div
+        style={{
+          height: 1000,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <FloatingComponent />
+      </div>
+    </div>
+  ),
 }
