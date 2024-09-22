@@ -19,11 +19,4 @@ export const Primary: Story = {
       { value: 'vanilla', label: 'Vanilla' },
     ],
   },
-  render: (args) => {
-    return (
-      <div style={{ height: 500 }}>
-        <ReactSelect {...args} />
-      </div>
-    )
-  },
 }
